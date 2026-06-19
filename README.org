@@ -18,7 +18,6 @@ It's usually placed at the footer
 
 Fork this repository, add yourself to the [[file:config.toml][config.toml]] and create a new PR.
 
-
 * Credits
 
 - [[https://nixwebr.ing/][nixwebr.ing]]
