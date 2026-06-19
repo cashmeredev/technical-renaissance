@@ -1,0 +1,25 @@
+#+title: Technical Renaissance Webring
+
+* Introduction
+
+This is the official webring for the =#technicalrenaissance= IRC channel, created by [[https://joshblais.com][Joshua Blais]].
+
+* How to join
+
+Add the following HTML code somewhere at your website:
+
+#+begin_src html
+
+#+end_src
+
+#+begin_note
+It's usually placed at the footer
+#+end_note
+
+Fork this repository, add yourself to the [[file:config.toml][config.toml]] and create a new PR.
+
+
+* Credits
+
+- [[https://nixwebr.ing/][nixwebr.ing]]
+- [[https://craftering.systemcrafters.net/][Craftering]] 
