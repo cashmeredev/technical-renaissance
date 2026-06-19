@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Technical Renaissance Webring</title>
+    <link rel="stylesheet" href="/static/org.css" />
+    <link rel="stylesheet" href="/static/webring.css" />
+  </head>
+  <body>
+    <h1 class="title">Technical Renaissance Webring</h1>
+    <p>
+      This is the official webring for the <code>#technicalrenaissance</code>
+      IRC channel, created by <a href="https://joshblais.com">Joshua Blais</a>.
+    </p>
+    <h2>How to join</h2>
+    <p>Add the following HTML somewhere on your website, usually in the footer:</p>
+    <div class="org-src-container">
+      <pre class="src src-html">
+{% filter forceescape %}
+<nav>
+  <a href="https://your-ring-host/prev?from=yourname">← previous</a>
+  <a href="https://your-ring-host/random">random</a>
+  <a href="https://your-ring-host/next?from=yourname">next →</a>
+</nav>
+{% endfilter %}
+</pre>
+    </div>
+    <p>
+      Then fork this repository, add yourself to the <code>config.toml</code>
+      and open a pull request.
+    </p>
+    <h2>Members</h2>
+    <ul class="members">
+      {% for user in users %}
+      <li class="member">
+        <h3><a href="{{ user.url }}">{{ user.name }}</a></h3>
+        <p>{{ user.description }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    <footer>
+      <a href="/prev">← previous</a>
+      <a href="/random">random</a>
+      <a href="/next">next →</a>
+    </footer>
+  </body>
+</html>
