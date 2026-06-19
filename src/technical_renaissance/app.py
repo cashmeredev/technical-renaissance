@@ -14,7 +14,13 @@ def return_config(path: Path) -> Config:
     with path.open("rb") as config:
         return cast(Config, tomllib.load(config))
 
+
 app = Robyn(__file__)
+
+app.serve_directory(
+    route="/static",
+    directory_path="./static",
+)
 
 
 @app.get("/")
