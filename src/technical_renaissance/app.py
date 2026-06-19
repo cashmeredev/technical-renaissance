@@ -66,6 +66,15 @@ async def random_user(_request: Request):
     return redirect(random.choice(users)["url"])
 
 
+@app.get("/feed.opml")
+async def opml(_request: Request) -> Response:
+    return Response(
+        status_code=200,
+        headers={"Content-Type": "text/x-opml"},
+        description=build_opml(),
+    )
+
+
 def build_opml() -> str:
     opml = ElementTree.Element("opml", version="2.0")
     head = ElementTree.SubElement(opml, "head")
@@ -82,5 +91,6 @@ def build_opml() -> str:
                 htmlUrl=user["url"],
             )
     return ElementTree.tostring(opml, encoding="unicode", xml_declaration=True)
+
 
 app.start(host="127.0.0.1", port=8080)
