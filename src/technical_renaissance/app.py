@@ -4,6 +4,7 @@ import random
 import tomllib
 from pathlib import Path
 from typing import TypedDict
+from xml.etree import ElementTree
 
 from robyn import Request, Response, Robyn
 from robyn.templating import JinjaTemplate
@@ -64,5 +65,22 @@ async def prev_user(request: Request):
 async def random_user(_request: Request):
     return redirect(random.choice(users)["url"])
 
+
+def build_opml() -> str:
+    opml = ElementTree.Element("opml", version="2.0")
+    head = ElementTree.SubElement(opml, "head")
+    ElementTree.SubElement(head, "title").text = "Technical Renaissance Webring"
+    body = ElementTree.SubElement(opml, "body")
+    for user in users:
+        if user["feed"]:
+            ElementTree.SubElement(
+                body,
+                "outline",
+                text=user["name"],
+                type="rss",
+                xmlUrl=user["feed"],
+                htmlUrl=user["url"],
+            )
+    return ElementTree.tostring(opml, encoding="unicode", xml_declaration=True)
 
 app.start(host="127.0.0.1", port=8080)
