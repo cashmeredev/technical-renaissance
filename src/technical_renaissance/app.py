@@ -1,3 +1,6 @@
+import os
+import pathlib
+from robyn.templating import JinjaTemplate
 from typing import cast
 import tomllib
 from pathlib import Path
@@ -21,6 +24,8 @@ app.serve_directory(
     route="/static",
     directory_path="./static",
 )
+current_file_path = pathlib.Path(__file__).parent.resolve()
+JINJA_TEMPLATE = JinjaTemplate(os.path.join(current_file_path, "templates"))
 
 
 @app.get("/")
