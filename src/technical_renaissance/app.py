@@ -93,4 +93,11 @@ def build_opml() -> str:
     return ElementTree.tostring(opml, encoding="unicode", xml_declaration=True)
 
 
-app.start(host="127.0.0.1", port=8080)
+def main() -> None:
+    host = os.environ.get("HOST", "127.0.0.1")
+    port = int(os.environ.get("PORT", "8080"))
+    app.start(host=host, port=port)
+
+
+if __name__ == "__main__":
+    main()
