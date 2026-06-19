@@ -1,5 +1,22 @@
 [[user]]
+name = "Joshua Blais"
+url = "https://joshblais.com/"
+description = ""
+feed = "https://joshblais.com/index.xml"
+
+[[user]]
 name = "cashmere"
 url = "https://cashmere.rs"
 description = "I am cashmere, the noblest and most technical fabric you may find on the World Wide Web."
 feed = "https://cashmere.rs/atom.xml"
+
+[[user]]
+name = "Matthew Kennedy"
+url = "https://matthew-kennedy.com/"
+description = ""
+feed = ""
+
+[[user]]
+name = "Scotty"
+url = "https://linuxmaxxing.com/"
+description = ""
