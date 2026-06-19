@@ -31,6 +31,23 @@ JINJA_TEMPLATE = JinjaTemplate(os.path.join(current_file_path, "templates"))
 @app.get("/")
 async def root(_request: Request):
     return "Hello World"
+@app.get("/next")
+async def next_user(request: Request):
+    current = index_of(request)
+    next_index = (current + 1) % len(users)
+    return redirect(users[next_index]["url"])
+
+
+@app.get("/prev")
+async def prev_user(request: Request):
+    current = index_of(request)
+    prev_index = (current - 1) % len(users)
+    return redirect(users[prev_index]["url"])
+
+
+@app.get("/random")
+async def random_user(_request: Request):
+    return redirect(random.choice(users)["url"])
 
 
 app.start(host="127.0.0.1", port=8080)
