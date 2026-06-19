@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Technical Renaissance Webring</title>
     <link rel="stylesheet" href="/static/org.css" />
+    <link rel="alternate" type="application/atom+xml" title="Technical Renaissance Webring" href="/feed.xml" />
   </head>
   <body>
     <h1 class="title">Technical Renaissance Webring</h1>
@@ -14,15 +15,7 @@
       IRC channel, created by <a href="https://joshblais.com">Joshua Blais</a>.
     </p>
 
-    <h2>Members</h2>
-    <ul class="members">
-      {% for user in users %}
-      <li class="member">
-        <h3><a href="{{ user.url }}">{{ user.name }}</a></h3>
-        <p>{{ user.description }}</p>
-      </li>
-      {% endfor %}
-    </ul>
+    <p>Subscribe to the <a href="/feed.xml">combined feed</a> of every member.</p>
 
     <h2>How to join</h2>
     <p>Add the following HTML somewhere on your website, usually in the footer:</p>
@@ -38,5 +31,15 @@
       Then fork this repository, add yourself to the <code>config.toml</code>
       and open a pull request.
     </p>
+
+    <h2>Members</h2>
+    <ul class="members">
+      {% for user in users %}
+      <li class="member">
+        <h3><a href="{{ user.url }}">{{ user.name }}</a></h3>
+        <p>{{ user.description }}</p>
+      </li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
