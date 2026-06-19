@@ -1,5 +1,18 @@
+from typing import cast
+import tomllib
+from pathlib import Path
 from robyn import Request
 from robyn import Robyn
+from typing import TypedDict
+
+
+User = TypedDict("User", {"name": str, "url": str, "description": str})
+Config = TypedDict("Config", {"user": list[User]})
+
+
+def return_config(path: Path) -> Config:
+    with path.open("rb") as config:
+        return cast(Config, tomllib.load(config))
 
 app = Robyn(__file__)
 
