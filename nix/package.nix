@@ -1,9 +1,14 @@
 {
+  stdenv,
   python3Packages,
   sources ? import ../npins,
 }:
 
 let
+  robynSrc =
+    sources."robyn-${stdenv.hostPlatform.system}"
+      or (throw "technical-renaissance: no robyn wheel pinned for ${stdenv.hostPlatform.system}");
+
   rustimport = python3Packages.buildPythonPackage {
     pname = "rustimport";
     version = "1.3.4";
@@ -18,7 +23,7 @@ let
     pname = "robyn";
     version = "0.86.0";
     format = "wheel";
-    src = sources.robyn;
+    src = robynSrc;
     dependencies = with python3Packages; [
       inquirerpy
       multiprocess

@@ -7,7 +7,13 @@
       "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1017567.3e41b24abd26/nixexprs.tar.xz",
       "hash": "sha256-eM+l4TVD26SNoEjcxRcpispqZi5Qrqj/G0ZY4LfqwfM="
     },
-    "robyn": {
+    "robyn-aarch64-linux": {
+      "type": "Url",
+      "url": "https://files.pythonhosted.org/packages/ee/60/baa1bae75003dac18c15c4fd989bb718370dbe8608936ebca104cda7215a/robyn-0.86.0-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "unpack": false,
+      "hash": "sha256-5HnVF3RzyfV0ShYSdEHeWtuaFetVSeCKJv173QRuCn8="
+    },
+    "robyn-x86_64-linux": {
       "type": "Url",
       "url": "https://files.pythonhosted.org/packages/2f/3f/03c816f76210307bca5eeb8e3aa27340a018f5e0078a0adf338f688324a9/robyn-0.86.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
       "unpack": false,
