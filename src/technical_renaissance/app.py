@@ -9,7 +9,7 @@ from robyn import Request, Response, Robyn
 from robyn.templating import JinjaTemplate
 
 
-User = TypedDict("User", {"name": str, "url": str, "description": str})
+User = TypedDict("User", {"name": str, "url": str, "description": str, "feed": str})
 
 
 def load_users(path: Path) -> list[User]:
