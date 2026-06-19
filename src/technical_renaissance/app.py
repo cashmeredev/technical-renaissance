@@ -1,16 +1,15 @@
 import os
 import pathlib
-from robyn.templating import JinjaTemplate
-from typing import cast
+import random
 import tomllib
 from pathlib import Path
-from robyn import Request
-from robyn import Robyn
 from typing import TypedDict
+
+from robyn import Request, Response, Robyn
+from robyn.templating import JinjaTemplate
 
 
 User = TypedDict("User", {"name": str, "url": str, "description": str})
-Config = TypedDict("Config", {"user": list[User]})
 
 
 def load_users(path: Path) -> list[User]:
@@ -20,19 +19,33 @@ def load_users(path: Path) -> list[User]:
 
 current_file_path = pathlib.Path(__file__).parent.resolve()
 users = load_users(current_file_path / "config.toml")
+
 app = Robyn(__file__)
 
 app.serve_directory(
     route="/static",
-    directory_path="./static",
+    directory_path=os.path.join(current_file_path, "static"),
 )
-current_file_path = pathlib.Path(__file__).parent.resolve()
 JINJA_TEMPLATE = JinjaTemplate(os.path.join(current_file_path, "templates"))
 
 
+def index_of(request: Request) -> int:
+    name = request.query_params.get("from", "")
+    for i, user in enumerate(users):
+        if user["name"] == name:
+            return i
+    return 0
+
+
+def redirect(url: str) -> Response:
+    return Response(status_code=302, headers={"Location": url}, description="")
+
+
 @app.get("/")
-async def root(_request: Request):
-    return "Hello World"
+async def index(_request: Request):
+    return JINJA_TEMPLATE.render_template("index.html", users=users)
+
+
 @app.get("/next")
 async def next_user(request: Request):
     current = index_of(request)
