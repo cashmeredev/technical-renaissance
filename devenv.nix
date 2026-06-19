@@ -1,4 +1,11 @@
-{ pkgs, lib, config, inputs, ... }:
+
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
 
 {
   # https://devenv.sh/basics/
@@ -9,6 +16,13 @@
 
   # https://devenv.sh/languages/
   # languages.rust.enable = true;
+  languages.python = {
+    enable = true;
+    uv = {
+      enable = true;
+      # sync.enable = true;
+    };
+  };
 
   # https://devenv.sh/processes/
   # processes.dev.exec = "${lib.getExe pkgs.watchexec} -n -- ls -la";
@@ -22,6 +36,10 @@
   '';
 
   # https://devenv.sh/basics/
+  scripts.pyrefly.exec = ''
+    exec env -u PYTHONPATH "$HOME/.nix-profile/bin/pyrefly" "$@"
+  '';
+
   enterShell = ''
     hello         # Run scripts directly
     git --version # Use packages
