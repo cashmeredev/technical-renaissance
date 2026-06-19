@@ -13,11 +13,13 @@ User = TypedDict("User", {"name": str, "url": str, "description": str})
 Config = TypedDict("Config", {"user": list[User]})
 
 
-def return_config(path: Path) -> Config:
-    with path.open("rb") as config:
-        return cast(Config, tomllib.load(config))
+def load_users(path: Path) -> list[User]:
+    with path.open("rb") as f:
+        return tomllib.load(f)["user"]
 
 
+current_file_path = pathlib.Path(__file__).parent.resolve()
+users = load_users(current_file_path / "config.toml")
 app = Robyn(__file__)
 
 app.serve_directory(
