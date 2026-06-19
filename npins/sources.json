@@ -6,6 +6,20 @@
       "artifact": "nixexprs.tar.xz",
       "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1017567.3e41b24abd26/nixexprs.tar.xz",
       "hash": "sha256-eM+l4TVD26SNoEjcxRcpispqZi5Qrqj/G0ZY4LfqwfM="
+    },
+    "robyn": {
+      "type": "Url",
+      "url": "https://files.pythonhosted.org/packages/2f/3f/03c816f76210307bca5eeb8e3aa27340a018f5e0078a0adf338f688324a9/robyn-0.86.0-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "unpack": false,
+      "hash": "sha256-nipU/66ANS9QZwYdum5NczqOWBCAaJpUhMwJodTHEoc="
+    },
+    "rustimport": {
+      "type": "PyPi",
+      "name": "rustimport",
+      "version_upper_bound": null,
+      "version": "1.3.4",
+      "url": "https://files.pythonhosted.org/packages/95/83/090f4be41dfbfd120a5fe0ed82b1857083bafe0928e876480d72a63e8bf3/rustimport-1.3.4.tar.gz",
+      "hash": "sha256-uoDjworwe6ORCtOVYT0B+eQhv7WfuxrAUOK12beLSYA="
     }
   },
   "version": 8
