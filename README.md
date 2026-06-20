@@ -13,8 +13,9 @@ Add the following HTML code somewhere at your website:
 
 ``` html
 <a href="https://webring.cashmere.rs/prev?from=yourname">← previous</a>
-<a href="https://webring.cashmere.rs/random">random</a>
+<a href="https://webring.cashmere.rs">Technical Renaissance Webring</a>
 <a href="https://webring.cashmere.rs/next?from=yourname">next →</a>
+<a href="https://webring.cashmere.rs/random">random</a>
 ```
 
 > [!NOTE]
