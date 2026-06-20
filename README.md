@@ -12,9 +12,9 @@ This is the official webring for the `#technicalrenaissance` IRC channel, create
 Add the following HTML code somewhere at your website:
 
 ``` html
-<a href="https://your-ring-host/prev?from=yourname">← previous</a>
-<a href="https://your-ring-host/random">random</a>
-<a href="https://your-ring-host/next?from=yourname">next →</a>
+<a href="https://webring.cashmere.rs/prev?from=yourname">← previous</a>
+<a href="https://webring.cashmere.rs/random">random</a>
+<a href="https://webring.cashmere.rs/next?from=yourname">next →</a>
 ```
 
 > [!NOTE]
