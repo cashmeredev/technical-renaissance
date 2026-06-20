@@ -21,3 +21,9 @@ name = "Scotty"
 url = "https://linuxmaxxing.com/"
 description = ""
 feed = ""
+
+[[user]]
+name = "mtmn"
+url = "https://mtmn.name"
+description = "I work with computers."
+feed = ""
